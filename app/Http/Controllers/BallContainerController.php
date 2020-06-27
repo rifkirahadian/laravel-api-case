@@ -21,6 +21,4 @@ class BallContainerController extends Controller
 
         $this->successResponse($container, 'Success');
     }
-
-    
 }

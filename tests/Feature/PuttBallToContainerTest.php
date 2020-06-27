@@ -35,5 +35,6 @@ class PuttBallToContainerTest extends TestCase
         $response = $this->post('/api/container/put-ball');
 
         $response->assertStatus(400);
+        $this->clearVerifiedContainer();
     }
 }

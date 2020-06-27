@@ -31,9 +31,9 @@ trait BallContainerActivity {
         try {
             $verified_container = BallContainer::where('is_verified', 1)->firstOrFail();
 
-            $this->badRequest('You have a full container before');
+            return true;
         } catch (Exception $th) {
-            
+            return false;
         }
     }
     
@@ -56,5 +56,10 @@ trait BallContainerActivity {
             'container_number'  => $ball_container->container_number,
             'verified'          => $ball_container->is_verified == 1 ? true : false
         ];
+    }
+
+    public function clearVerifiedContainer()
+    {
+        BallContainer::where('is_verified', 1)->delete();
     }
 }

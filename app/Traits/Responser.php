@@ -14,7 +14,6 @@ trait Responser {
             'message'   => $message
         ];
         
-        response()->json($response, 400)->send();
-        dd();
+        return response()->json($response, 400);
 	}
 }

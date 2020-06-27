@@ -12,8 +12,10 @@ class BallContainerController extends Controller
     public function putBallToContainer(Request $request)
     {
         $container_number =  rand();
-        $this->fullyContainerCheck();
-        
+        if ($this->fullyContainerCheck()) {
+            return $this->badRequest('You have a full container before');
+        }
+
         $ball_container = $this->getContainer($container_number, $request->init_quantity);
         $container = $this->putBall($ball_container);
 

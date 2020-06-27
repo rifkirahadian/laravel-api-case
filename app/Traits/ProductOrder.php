@@ -90,4 +90,9 @@ trait ProductOrder {
             ]);
         }
     }
+
+    protected function getAvailableProduct()
+    {
+        return Product::where('stock', '>', 0)->first();
+    }
 }

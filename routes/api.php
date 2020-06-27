@@ -21,3 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('container/put-ball', 'BallContainerController@putBallToContainer');
 
+
+Route::group(['prefix' => 'product'], function() {
+    
+    Route::get('list', 'ProductController@index');
+    
+});
+
+

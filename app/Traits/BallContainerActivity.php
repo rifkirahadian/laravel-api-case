@@ -26,12 +26,14 @@ trait BallContainerActivity {
         return $ball_container;
     }
 
-    protected function fullyContainerCheck($ball_container)
+    protected function fullyContainerCheck()
     {
-        $max_ball_container = Config::get('ball_container.container.max_ball');
+        try {
+            $verified_container = BallContainer::where('is_verified', 1)->firstOrFail();
 
-        if ($max_ball_container == $ball_container->quantity) {
-            return $this->badRequest('Container was full');
+            $this->badRequest('You have a full container before');
+        } catch (Exception $th) {
+            
         }
     }
     

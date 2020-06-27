@@ -17,12 +17,12 @@ class ProductSeeder extends Seeder
         $faker = Factory::create();
 
         $bulk = [];
-        foreach (range(1,5) as $key => $value) {
+        foreach (range(1,10) as $key => $value) {
             $product_name = $faker->company;
             $bulk[] = [
                 'name'  => $product_name,
                 'slug'  => Str::slug($product_name, '-'),
-                'stock' => rand(1,7)
+                'stock' => rand(5,10)
             ];
         }
         Product::insert($bulk);

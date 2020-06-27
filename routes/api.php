@@ -18,14 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::post('container/put-ball', 'BallContainerController@putBallToContainer');
 
-
 Route::group(['prefix' => 'product'], function() {
-    
     Route::get('list', 'ProductController@index');
-    
+    Route::post('transaction', 'ProductController@productTransaction');
 });
 
 

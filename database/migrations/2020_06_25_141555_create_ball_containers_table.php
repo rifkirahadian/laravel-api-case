@@ -15,7 +15,7 @@ class CreateBallContainersTable extends Migration
     {
         Schema::create('ball_containers', function (Blueprint $table) {
             $table->id();
-            $table->string('container_number');
+            $table->string('container_number')->unique();
             $table->integer('quantity');
             $table->boolean('is_verified')->default(false);
             $table->timestamps();

@@ -4,7 +4,7 @@ namespace App\Traits;
 trait Responser {
 	protected function successResponse($data, $message)
 	{
-		return response()->json(compact('message', 'data'))->send();
+		return response()->json(compact('message', 'data'));
 	}
 
 	protected function badRequest($message)
